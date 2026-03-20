@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <sstream> //string stream
+#include <cctype>
 
 using namespace std;
 
@@ -24,12 +25,18 @@ int tokenize(string myString, string strArray[NUM_OF_TOKENS]){
 
 int main ()
 {
-      string str = " ";
+      string str = " "; // string is character array
         string arr[NUM_OF_TOKENS];
 
 	// TODO: prompt the user to input a string
 	 cout << "Input a string: ";
            getline(cin, str);
+           for(int i = 0; i < str.length(); i++){ //.length() from <string>
+            if(ispunct(str[i])){ // if character is punctuation then erase 1 character at current index 
+               str.erase(i, 1); // .erase(position, number of characters to remove)
+               i--; // reset position, so i dont skip potential punctuation neighbors
+           }
+           }
 	// TODO: call the tokenize function
 	 int tsize = tokenize(str, arr);
 	// TODO: display the tokens
@@ -37,6 +44,7 @@ int main ()
            cout << arr[i] << endl;
            }
 	// TODO: call a function to encrypt strings that starts with a vowel
+           
 
 	// TODO: call a function to encrypt strings that starts with a consonant
 
