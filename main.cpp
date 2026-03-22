@@ -63,24 +63,24 @@ int main ()
 
 void consonant(string a[], int s){ // array of strings (array within an array) and num of tokens
 int tmp = 0; //tmp variable
-int toklen = 0; //token length 
+int toklen = 0; // for token length
 for(int i = 0; i < s; i++){ // checking the entire token string array
- for(int j = 0; j < a[i].length(); j++){ // checking against each individual token string
-  toklen = a[i].length();
+ int count = 0; //counter for first 3 letters                           //
+ toklen = a[i].length();
   // a[i][j] means character now cuz we in a string(array) in a array
-  if(a[i][0] != 'a' && a[i][0] != 'A' && a[i][0] != 'e' && a[i][0] != 'E' && a[i][0] != 'o' && a[i][0] != 'O' && a[i][0] != 'u' && a[i][0] != 'U')
-  {
+  if(a[i][0] != 'a' && a[i][0] != 'A' && a[i][0] != 'e' && a[i][0] != 'E' && a[i][0] != 'o' && a[i][0] != 'O' && a[i][0] != 'u' && a[i][0] != 'U') //today i learned you can access the 2d array immediately without the for loop
+  {  while(count < 3){
     // if not vowel swap to move to end of token for first 3 letters
-    //for(int k = 0; k < 3; k++){
-     for(int l = 0; l < toklen - 1; l++){ 
-      tmp = a[i][l];
-      a[i][l] = a[i][l + 1];
-      a[i][l + 1] = tmp;
+     for(int j = 0; j < toklen - 1; j++){  
+      tmp = a[i][j];
+      a[i][j] = a[i][j + 1];       //pseudo bubble swap 
+      a[i][j + 1] = tmp;
      }
-    //}
+     count++;
+   }
   }
 
- }
+ 
 }
 }
 
