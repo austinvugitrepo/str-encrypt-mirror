@@ -44,6 +44,7 @@ int main ()
 	 for(int i = 0; i < tsize; i++){
            cout << arr[i] << endl;
            }
+    cout << endl;
 	// TODO: call a function to encrypt strings that starts with a vowel
            
 
@@ -54,9 +55,9 @@ int main ()
     
 	// TODO: display the encrypted strings (the results)
     for(int i = 0; i < tsize; i++){
-     cout << arr[i] << endl;
+     cout << arr[i] << "";
     }
-
+  cout << endl;
     return 0; 
 }
 
@@ -65,10 +66,10 @@ void consonant(string a[], int s){ // array of strings (array within an array) a
 int tmp = 0; //tmp variable
 int toklen = 0; // for token length
 for(int i = 0; i < s; i++){ // checking the entire token string array
- int count = 0; //counter for first 3 letters                           //
+ int count = 0; //counter for first 3 letters                           
  toklen = a[i].length();
   // a[i][j] means character now cuz we in a string(array) in a array
-  if(a[i][0] != 'a' && a[i][0] != 'A' && a[i][0] != 'e' && a[i][0] != 'E' && a[i][0] != 'o' && a[i][0] != 'O' && a[i][0] != 'u' && a[i][0] != 'U') //today i learned you can access the 2d array immediately without the for loop
+  if(a[i][0] != 'a' && a[i][0] != 'A' && a[i][0] != 'e' && a[i][0] != 'E' && a[i][0] != 'i' && a[i][0] != 'I' && a[i][0] != 'o' && a[i][0] != 'O' && a[i][0] != 'u' && a[i][0] != 'U' && toklen > 3) //today i learned you can access the 2d array immediately without the for loop
   {  while(count < 3){
     // if not vowel swap to move to end of token for first 3 letters
      for(int j = 0; j < toklen - 1; j++){  
@@ -78,6 +79,7 @@ for(int i = 0; i < s; i++){ // checking the entire token string array
      }
      count++;
    }
+   a[i].push_back('$'); // add $ to the end of the token after 3 letter swap 
   }
 
  
